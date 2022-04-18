@@ -21,16 +21,6 @@ var leaveembed = new MessageEmbed()
 	.setThumbnail('https://fonts.gstatic.com/s/i/productlogos/meet_2020q4/v1/web-96dp/logo_meet_2020q4_color_2x_web_96dp.png')
     .setColor('#dc143c')
 
-//const errorembed = new MessageEmbed()
-//    .setTitle('An unexpected error occurred.')
-//    .setDescription("An unexpected error occurred, please check the console for more information.")
-//    .setFooter("Google Meet Bot By HaeImAlan :( ")
-//    .setThumbnail('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fen%2Fsearch%3Fq%3Derror%2BMessage&psig=AOvVaw0L7_bAxVRW6v26esflA0Jb&ust=1635857980543000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPiXzISc9_MCFQAAAAAdAAAAABAJ')
-//    .setColor("#000000")
-
-
-
-
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -39,7 +29,7 @@ app.set('view engine', 'ejs');
 
 
 
-let head = false;
+let head = true;
 let strict = false;
 
 meetObj = new GoogleMeet(email, password, head, strict);
@@ -106,5 +96,5 @@ const listener = app.listen(3000 || process.env.PORT, () => {
 		}
 	}, 10000)
 
-	console.log(`App listening on port ${listener.address().port}`)
+	console.log(`Listening on localhost:${listener.address().port}`)
 })

@@ -28,6 +28,6 @@ The main problem on deployment is that after deployment it will be hosted on dif
 
 Project is made using [Puppeteer](https://developers.google.com/web/tools/puppeteer) which is a Node library which provides a high-level API to control headless Chrome or Chromium. We open a chromium app on server where we can add create open tabs see browser versions and everything.
 
-So here we are using `puppeteer-extra` and `puppeteer-extra-plugin-stealth` which helps in creating an instance of chrome where google don't able to detect that it is created by puppeteer. So using this plugin we can login into google without filling capcha.
+So here we are using `puppeteer-extra` and `puppeteer-extra-plugin-stealth` which helps in creating an instance of chrome where google won't be able to detect that it is created by puppeteer. So using this plugin we can login into google without filling capcha.
 
 ---

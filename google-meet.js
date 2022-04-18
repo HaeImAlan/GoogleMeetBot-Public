@@ -1,7 +1,22 @@
 // const puppeteer = require('puppeteer');
 const puppeteer = require('puppeteer-extra')
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
+//grab the webhook url from config.json
+const { MessageEmbed, WebhookClient } = require('discord.js');
+const { webhookURL } = require('./config.json');
+puppeteer.use(StealthPlugin())
+//define a webhook message
+const webhookClient = new WebhookClient({ url: webhookURL });
+//define the failure embed
+var joinfailed = new MessageEmbed()
+	.setTitle('Join Failed')
+	.setDescription(`We couldn't disable either audio or video from the device.`)
+	.setFooter("Google Meet Bot By HaeImAlan")
+	.setThumbnail('https://fonts.gstatic.com/s/i/productlogos/meet_2020q4/v1/web-96dp/logo_meet_2020q4_color_2x_web_96dp.png')
+	.setColor('#8B0000')
 
+
+	
 puppeteer.use(StealthPlugin())
 
 class GoogleMeet {
@@ -79,6 +94,7 @@ class GoogleMeet {
 
 				if (audio === "false" || video === "false") {
 					console.log("Not joining meeting. We couldn't disable either audio or video from the device.\nYou may try again.")
+					webhookClient.send(joinfailed);
 					return
 				}
 				console.log("all set!!")

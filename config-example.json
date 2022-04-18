@@ -1,5 +1,0 @@
-{
-  "webhookURL": "DISCORD_WEBHOOK_URL",
-  "email": "EMAIL(Gmail accounts are not supported.)",
-  "password": "PASSWORD"
-}
